@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "DSA Tracker – LeetCode Connect",
+  "version": "1.0.0",
+  "description": "One-click LeetCode cookie sync for DSA Tracker",
+  "permissions": [
+    "cookies",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://*/*"
+],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DSA Tracker Connect"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
